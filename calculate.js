@@ -1,5 +1,3 @@
-// I think it would make more sense to include the rate in the shiftType ojbect
-// rather than inputting it with the shift times
 function shiftType(id, name, start, end) {
     this.id = id,
     this.name = name,
@@ -7,7 +5,7 @@ function shiftType(id, name, start, end) {
     this.endTime = end
 }
 
-// Initialize shift type data
+//Initialize shift type data
 const shiftTypeData = {
     shiftTypeCount : 3,
     regular : new shiftType(1, "regular", 9, 17),
@@ -50,14 +48,14 @@ function calculatePay(shiftsAndRates) {
         var startInt = start.getHours();
 
         //For each hour in a shift determine the hourly rate and add to total pay
-        for(var j = 0; j < hoursWorked; j++){
+        for(var j = 0; j < hoursWorked; j++) {
             var shiftType = getShiftType(startInt + j);
             if(shiftType==shiftTypeData.regular.id){
                 totalPay+=regularRate;
-            } else if(shiftType==shiftTypeData.night.id){
+            } else if(shiftType==shiftTypeData.night.id) {
                 totalPay+=nighttimeRate;
             } else {
-                totalPay+=midnightRate
+                totalPay+=midnightRate;
             }
         }
     }
@@ -65,10 +63,6 @@ function calculatePay(shiftsAndRates) {
     return totalPay + "\n";  
 }
 
-function submit(){
-    //var testInput = "1000 1300 1500\n4\n0 9 9 17 17 22 22 23\n"
-    //var testInputTwo = "1300 1500 1700\n7\n8 19 9 20 10 21 11 22 0 23 20 22 0 21\n"
-
+function submit() {
     calculatePay(document.getElementById('input').value);
 }
-
