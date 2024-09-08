@@ -18,10 +18,10 @@ function getShiftType(hour) {
     //hour is between 9-17
     if((hour >= shiftTypeData.regular.startTime) && (hour < shiftTypeData.regular.endTime)) 
         return shiftTypeData.regular.id;
-    ///hour is between 17-22
+    //hour is between 17-22
     else if((hour >= shiftTypeData.night.startTime) && (hour < shiftTypeData.night.endTime))       
         return shiftTypeData.night.id;
-    ///hour is between 22-9
+    //hour is between 22-9
     else return shiftTypeData.midnight.id;
 }
 
