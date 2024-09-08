@@ -40,11 +40,13 @@ function calculatePay(shiftsAndRates) {
     
     //Iterate over each pair of start and end times
     for(var i = 0; i <= shiftTimes.length-1; i+=2) {
+        
+        //Get total time worked from start and end times of a shift
         var start = new Date(`9999, ${shiftTimes[i]}:00`);
         var end = new Date(`9999, ${shiftTimes[i+1]}:00`);
-
-        //Get total time worked from start and end times of a shift
         var hoursWorked = Math.abs(end - start) / 36e5;
+
+        //Get shift start time as int for using in loop
         var startInt = start.getHours();
 
         //For each hour in a shift determine the hourly rate and add to total pay
